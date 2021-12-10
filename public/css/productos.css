@@ -1,0 +1,77 @@
+* {
+	font-family: 'Secular One', sans-serif;
+}
+body {
+	background-image: url(https://img.freepik.com/free-vector/gradient-liquid-abstract-background_52683-60469.jpg?size=626&ext=jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+
+/* Footer */
+
+.pieDePagina{
+	background-color: #444;
+	color: #fff;
+}
+.menuFooter {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	text-align: center;
+}
+
+.fondo {
+    background-color: #FFFFFF;
+}
+
+
+@media (min-width: 750px) {
+    .menuFooter {
+        flex-direction: row; 
+        justify-content: center; 
+   }
+ }
+ @media (min-width: 1024px) {
+    .menuFooter {
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+ }
+ .col-md-4 {
+     flex: auto;
+     width: 80%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+ }
+ 
+ .menuFooter a {
+     text-decoration: none;
+     color: #fff;
+     font-size: 1rem;
+     line-height: 2rem;
+ }
+ @media (min-width:  1024px) {
+     .menuFooter a {
+         font-size: 1.5rem;
+     }
+ }
+ 
+ /* Formulario logueo */
+ /* .formulario2 {
+     background-color: #D47428;
+     padding: 1rem;
+     ;
+     margin: 3rem 1rem;
+ } */
+ /* .img-responsive{
+     display: flex;
+ } */
+ 
+ .pie {
+     list-style: none;
+     
+ }

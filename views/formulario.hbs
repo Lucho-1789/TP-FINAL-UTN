@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5678/5678575.png">
+    <title>Curso e-Learning</title>
+    <!-- Bootsrtrap compilado -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/insc.css">
+</head>
+<body>
+
+  <!--  Header  -->
+  {{> header}}
+
+
+<!-- ------Formulario----------- -->
+
+
+
+<!-- Formulario con logueo -->
+
+{{!-- <div class="formulario2 container">
+  <div class=" ">
+
+<form  class="form-label col-md-4 " action="/registro" method="post">
+    <input type="email" name="email" placeholder="Escribí tu email" autofocus>
+    <input type="password" name="password" placeholder="Ingresá tu contraseña" >
+    <button>Enviar</button>
+</form>
+
+</div>
+</div> --}}
+
+
+<div class="formulario2">
+<form action="registro" method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Escribí tu email</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más..</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Ingresá tu contraseña</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Verifica</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+</div>
+
+
+
+<!-- Footer -->
+{{> footer}}
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

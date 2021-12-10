@@ -1,0 +1,188 @@
+* {
+	font-family: 'Secular One', sans-serif;
+}
+body {
+	background-image: url(https://img.freepik.com/free-vector/gradient-liquid-abstract-background_52683-60469.jpg?size=626&ext=jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+/* @media (min-width: 760px){
+	.body{
+		padding-bottom: 500px;
+	}
+} */
+
+/*-----NavBar-------------*/
+
+.nav-link{
+	color:  red;
+	;
+}
+@media (min-width: 1024px){
+	.nav-link{
+		font-size: 1.5rem;
+	}
+}
+@media (min-width: 1024px){
+	.dropdown-item{
+		font-size: 1.5rem;
+	}
+}
+@media (min-width:  1024px){
+	.navbar-brand{
+		font-size: 2rem;
+	}
+}
+@media (min-width:  1024px){
+	.btn.btn-outline-success{
+		font-size: 1.5rem;
+	}
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,255);
+}
+.btn-outline-success {
+    color: #E9FEE9;
+    border-color: #E9FEE9;
+}
+.navbar-toggler {
+	border-color: blue;
+	margin-right: .5rem;
+}
+@media(min-width:  750px){
+	.navbar-toggler{
+		margin-right: 2rem;
+	}
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,.55);
+    border-color: rgba(255,255,255,.5);
+}
+/* .collapsed{
+
+} */
+
+/*------Logo pagina------*/
+.logoPagina {
+	
+	border-radius: 30%;
+	margin-right: .25rem;
+	margin-left: 0rem;
+	margin-bottom: .4rem;
+}
+@media (min-width: 750px){
+	.logoPagina {
+		margin-left: .1rem;
+		margin-right: 1rem;
+		height: 3rem;
+		border-radius: 10%;
+	}
+}
+
+/*------formulario-------*/
+.formulario {
+	background-color: #D47428;
+	padding: 1rem;
+	;
+	margin: 3rem 1rem;
+}
+@media (min-width: 360px){
+	.formulario {
+		margin-top: 1rem;
+		margin-bottom: 1rem;			
+	}
+}
+@media (min-width: 768px){
+	.formulario {
+		margin-top: 3rem;
+		margin-bottom: 5rem;			
+	}
+}
+@media (min-width: 1024px){
+	.formulario {
+		margin-top: 3rem;
+		margin-bottom: 5rem;			
+	}
+}
+
+.valid-feedback {
+	color: #000000;
+}
+.invalid-feedback {
+	color: #ffffff;
+}
+
+/* Formulario logueo */
+.formulario2 {
+	background-color: #D47428;
+	padding: 1rem;
+	;
+	margin: 3rem 1rem;
+}
+
+
+/*.form-check-label{
+	color: #000000;
+}*/
+
+.form-check-input.is-invalid~.form-check-label, .was-validated .form-check-input:invalid~.form-check-label {
+    color: #ffffff;
+}
+.form-check-input:valid~.form-check-label {
+    color: #000000;
+}
+
+/*-----boton------*/
+.btn-primary {
+    color: #fff;
+    background-color: #6C1F9E;
+    border-color: #6C1F9E;
+}
+/*0d6efd*/
+
+
+/* Footer */
+
+.pieDePagina{
+	background-color: #444;
+	color: #fff;
+}
+.menuFooter {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	text-align: center;
+}
+@media (min-width: 750px) {
+   .menuFooter {
+   	flex-direction: row; 
+   	justify-content: center; 
+  }
+}
+@media (min-width: 1024px) {
+   .menuFooter {
+   	/*flex-direction: row;*/ 
+   	justify-content: space-around;
+   }
+}
+
+.menuFooter a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+@media (min-width:  1024px) {
+	.menuFooter a {
+		font-size: 1.5rem;
+	}
+}
+
+
+.pie {
+	list-style: none;
+	
+}
