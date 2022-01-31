@@ -4,6 +4,9 @@ const router = new Router();
 const mysql = require('mysql');
 
 
+// Del commit de marcelo---------------------------------------------------
+// const port = process.env.PORT || 3000
+
 //Conexion a base de datos
 const conn = mysql.createConnection({
 host: 'localhost',
@@ -21,30 +24,57 @@ conn.connect ((err) => {
 router.get("/", (req, res) => {
   	res.render("index"); 
   });
-  
+
+
+// Del commit de marcelo---------------------------------------------------
+  router.get('/index', (req, res) => {
+    res.render('index', {
+    }
+    );
+});
+
+// Ruta Marcelo---------------------------------------------------------
+// router.get('/productos', (req, res) => {
+//   res.render('perfil2');
+// });
+
+ 
+// Pruebo con esto
 // router.post("/registro", (req, res) => {
 //   	req.session.myvariable = req.body;
-//   	res.redirect('perfil');
+//   	res.redirect('/perfil');
 //   });
 
 router.post("/registro", (req,res) => {
   let data = { email: req.body.email, }
-    let sql = "INSERT INTO Suscriptos SET ?";
+    let sql = "INSERT INTO suscriptos SET ?";
     let query = conn.query(sql, data, (err, results) => {
         if (err) throw err;
         res.redirect('/perfil');
       });
     });
+   
+
+//Pruebo con esto------------------------------------------------------------------------
+    router.post("/inscripcion", (req,res) => {
+      let data = { nombre: req.body.nombre, }      
+        let sql = "INSERT INTO inscribite SET ?";  
+        let query = conn.query(sql, data, (err, results) => {
+            if (err) throw err;
+            res.redirect('/perfil');
+          });
+        });
  
-  
-router.get("/perfil", (req, res) => {
-  	const usuario = req.session.myvariable;
-  	delete req.session.myvariable;
-  	res.render('perfil', {
-  		usuario
-  	})
+ 
+// Pruebo comentando esto------------------------------------------------------
+// router.get("/perfil", (req, res) => {
+//   	const usuario = req.session.myvariable;
+//   	delete req.session.myvariable;
+//   	res.render('perfil', {
+//   		usuario
+//   	})
     
-  })
+//   })
 
 
 
@@ -53,7 +83,7 @@ router.get("/perfil", (req, res) => {
 
 
 // SELECT 
-router.get('/', (req, res) => {
+router.get('/productos', (req, res) => {
   let sql = "SELECT * FROM productos";
   let query = conn.query(sql, (err, results) => {
       if (err) throw err;
@@ -63,14 +93,25 @@ router.get('/', (req, res) => {
   });
 });
 
+// Probando inscripcion-----------------------------------------------------------
+// router.get('/inscripcion', (req, res) => {
+//   let sql = "SELECT * FROM inscribite";
+//   let query = conn.query(sql, (err, results) => {
+//       if (err) throw err;
+//       res.render('../views/', {
+//           results: results
+//       });
+//   });
+// });
+
 //Insertar
-router.post('/save', (req, res) => {
-    //guardar la sentencia para despues insertar un dato
-    let data = {producto_nombre: req.body.producto_nombre, producto_precio: req.body.producto_precio};
+//guardar la sentencia para despues insertar un dato
+router.post('/save', (req, res) => {    
+    let data = { producto_nombre: req.body.producto_nombre, producto_precio: req.body.producto_precio };
     let sql = "INSERT INTO productos SET ? ";
     let query = conn.query(sql, data, (err, results) =>{
         if (err) throw err;
-        res.redirect('/');
+        res.redirect('/productos');
     });
 });
 
@@ -80,7 +121,7 @@ router.post('/save', (req, res) => {
     let sql = "UPDATE productos SET producto_nombre='" +req.body.producto_nombre+ "', producto_precio='" +req.body.producto_precio+ "' WHERE producto_id=" +req.body.id;
     let query = conn.query(sql, (err, results) => {
       if (err) throw err;
-      res.redirect('/');
+      res.redirect('/productos');
     });
   });
 
@@ -89,7 +130,7 @@ router.post('/save', (req, res) => {
     let sql = "DELETE FROM productos WHERE producto_id=" +req.body.producto_id+"";
     let query = conn.query(sql, (err, results) => {
         if(err) throw err;
-        res.redirect('/');
+        res.redirect('/perfil2');
     });
 });
 
@@ -107,46 +148,46 @@ router.post('/save', (req, res) => {
 // });
 
 
-// //Envio de mail
+//Envio de mail
 
-    // router.get('/contacto',(req, res) => {
-    //     res.render('contacto');
-    // });
+    router.get('/contacto',(req, res) => {
+        res.render('contacto');
+    });
     
     
-    //     router.post("/send-email",(req, res) =>{
-    //     const nombre = req.body.nombre;
-    //     const apellido = req.body.apellido;
-    //     const email = req.body.email;
-    //     const asunto = req.body.asunto;
-    //     const mensaje = req.body.mensaje;
+        router.post("/send-email",(req, res) =>{
+        const nombre = req.body.nombre;
+        const apellido = req.body.apellido;
+        const email = req.body.email;
+        const asunto = req.body.asunto;
+        const mensaje = req.body.mensaje;
 
 
-    //     const transporter = nodemailer.createTransport({
-    //         host: process.env.SMTP_HOST,
-    //         port: process.env.SMTP_PORT,
-    //         secure: false,
-    //         auth: {
-    //         user: process.env.SMTP_USER,
-    //         pass: process.env.SMTP_PASS,
-    //     },
-    //     });
-    //     const mailOptions={
-    //         from: "Remitente",
-    //         to:"naranjaspintdas@gmail.com",
-    //         subject: `${asunto}`,
-    //         html:`<h1>Consulta de ${nombre} ${apellido} sobre ${mensaje}. Responder a ${email}</h1>`,
-    //     };
+        const transporter = nodemailer.createTransport({
+            host: process.env.SMTP_HOST,
+            port: process.env.SMTP_PORT,
+            secure: false,
+            auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+        },
+        });
+        const mailOptions={
+            from: "Remitente",
+            to:"naranjaspintdas@gmail.com",
+            subject: `${asunto}`,
+            html:`<h1>Consulta de ${nombre} ${apellido} sobre ${mensaje}. Responder a ${email}</h1>`,
+        };
 
-    //     transporter.sendMail(mailOptions,(error, info)=>{
-    //         if(error){
-    //         res.status(500).send(error.message);
-    //             }else{
-    //             console.log("Email enviado")
-    //             res.status(200).jsonp(reqbody);
-    //             }
-    //     });
-    // });
+        transporter.sendMail(mailOptions,(error, info)=>{
+            if(error){
+            res.status(500).send(error.message);
+                }else{
+                console.log("Email enviado")
+                res.status(200).jsonp(reqbody);
+                }
+        });
+    });
 
 
 module.exports = router;
