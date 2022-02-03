@@ -25,7 +25,6 @@ router.get("/", (req, res) => {
   	res.render("index"); 
   });
 
-
 // Del commit de marcelo---------------------------------------------------
   router.get('/index', (req, res) => {
     res.render('index', {
@@ -45,6 +44,8 @@ router.get("/", (req, res) => {
 //   	res.redirect('/perfil');
 //   });
 
+
+// a ver------------------------------------------------------------------------
 router.post("/registro", (req,res) => {
   let data = { email: req.body.email, }
     let sql = "INSERT INTO suscriptos SET ?";
@@ -56,14 +57,14 @@ router.post("/registro", (req,res) => {
    
 
 //Pruebo con esto------------------------------------------------------------------------
-    router.post("/inscripcion", (req,res) => {
-      let data = { nombre: req.body.nombre, }      
-        let sql = "INSERT INTO inscribite SET ?";  
-        let query = conn.query(sql, data, (err, results) => {
-            if (err) throw err;
-            res.redirect('/perfil');
-          });
-        });
+    // router.post("/inscripcion", (req,res) => {
+    //   let data = { nombre: req.body.nombre, }      
+    //     let sql = "INSERT INTO inscribite SET ?";  
+    //     let query = conn.query(sql, data, (err, results) => {
+    //         if (err) throw err;
+    //         res.redirect('/perfil');
+    //       });
+    //     });
  
  
 // Pruebo comentando esto------------------------------------------------------
@@ -130,7 +131,7 @@ router.post('/save', (req, res) => {
     let sql = "DELETE FROM productos WHERE producto_id=" +req.body.producto_id+"";
     let query = conn.query(sql, (err, results) => {
         if(err) throw err;
-        res.redirect('/perfil2');
+        res.redirect('/productos');
     });
 });
 
@@ -155,7 +156,7 @@ router.post('/save', (req, res) => {
     });
     
     
-        router.post("/send-email",(req, res) =>{
+        router.post("/perfil",(req, res) =>{
         const nombre = req.body.nombre;
         const apellido = req.body.apellido;
         const email = req.body.email;
@@ -175,8 +176,10 @@ router.post('/save', (req, res) => {
         const mailOptions={
             from: "Remitente",
             to:"naranjaspintdas@gmail.com",
+            // to:"levi.halvorson18@ethereal.email",
             subject: `${asunto}`,
-            html:`<h1>Consulta de ${nombre} ${apellido} sobre ${mensaje}. Responder a ${email}</h1>`,
+            html: `Hola como estas? ${nombre}`,
+            // `<h1>Consulta de ${nombre} ${apellido} sobre ${mensaje}. Responder a ${email}</h1>`,
         };
 
         transporter.sendMail(mailOptions,(error, info)=>{
@@ -188,6 +191,11 @@ router.post('/save', (req, res) => {
                 }
         });
     });
+
+
+
+    // SMTP_USER=urban.eichmann25@ethereal.email
+    // SMTP_PASS=gM5m8HBEEn35v1yp98HFXBqKMbQWFTASV5D6
 
 
 module.exports = router;
